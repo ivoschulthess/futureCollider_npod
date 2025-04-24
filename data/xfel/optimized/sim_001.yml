@@ -1,0 +1,26 @@
+# Example of a simulated bunch crossing of the XFEL electron beam with the optimized laser intensity
+
+---
+control:
+  lcfa: true
+  rng_seed: 0
+
+laser:
+  a0: 41
+  wavelength: 0.8 * micro
+  waist: 2.0 * micro
+  fwhm_duration: 20 * femto
+  polarization: linear
+
+beam:
+  n: 1000000
+  charge: 1000 * pico
+  gamma: 17.5 * GeV / (me * c^2)
+  collision_angle: -17.2 * degree
+
+output:
+  ident: auto
+  dump_all_particles: hdf5
+  coordinate_system: beam
+  discard_background: false
+  units: hep

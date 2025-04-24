@@ -1,0 +1,26 @@
+# Example of a simulated bunch crossing of the FCC-ee electron beam with the intensity control laser
+
+---
+control:
+  lcfa: false
+  rng_seed: 0
+
+laser:
+  a0: 0.002
+  wavelength: 0.8 * micro
+  waist: 100.0 * micro
+  fwhm_duration: 353220 * femto
+  polarization: linear
+
+beam:
+  n: 100000
+  charge: 2.43e11 * e
+  gamma: 45.6 * GeV / (me * c^2)
+  collision_angle: 0.0 * degree
+
+output:
+  ident: auto
+  dump_all_particles: hdf5
+  coordinate_system: beam
+  discard_background: false
+  units: hep

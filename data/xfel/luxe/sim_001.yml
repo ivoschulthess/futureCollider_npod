@@ -1,0 +1,38 @@
+# Example of a simulated bunch crossing of the XFEL electron beam with the LUXE-NPOD case
+
+---
+control:
+  lcfa: false
+  rng_seed: 0
+
+laser:
+  # xi = 147.839 sqrt(E [J]) lambda [micron] / (w0 [micron] sqrt(t [fs]))
+  a0: 147.839 * sqrt(laser_energy) * wavelength / (waist * sqrt(tau))
+  wavelength: wavelength
+  fwhm_duration: tau * femto
+  waist: waist
+  polarization: circular
+
+beam:
+  n: 1000000
+  charge: 250 * pico
+  gamma: initial_gamma
+  sigma: 0.001 * initial_gamma
+  radius: [5.0 * micro, normally_distributed]
+  length: 24.0 * micro
+  collision_angle: -17.2 * degree
+  rms_divergence: 8.672 * micro
+
+output:
+  ident: auto
+  dump_all_particles: hdf5
+  discard_background: false
+  coordinate_system: beam
+  units: hep
+
+constants:
+  laser_energy: 10.0 # joules
+  wavelength: 0.8 * micro
+  waist: 10.0 * micro
+  tau: 120.0 # femto
+  initial_gamma: 16.5 * GeV / (me * c^2)
